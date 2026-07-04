@@ -19,6 +19,30 @@ scripts/archive_scripts/
 paper_drafts_archive/
 paper_v4_tracked_changes.tex
 
+# Keep local exploratory outputs out of the public repository.
+figures/*
+!figures/Fig2_method_ablation.pdf
+!figures/Fig2_method_ablation.png
+!figures/Fig3_results_summary.pdf
+!figures/Fig3_results_summary.png
+!figures/Fig4_splitting_deltas.pdf
+!figures/Fig4_splitting_deltas.png
+!figures/Fig5_avoided_crossing_alpha005_h1.pdf
+!figures/Fig5_avoided_crossing_alpha005_h1.png
+!figures/Fig6_avoided_crossing_geometric.pdf
+!figures/Fig6_avoided_crossing_geometric.png
+!figures/Fig7_residual_baseline_control.pdf
+!figures/Fig7_residual_baseline_control.png
+
+scripts/generate_analytical_figures.py
+scripts/make_main_results_figure.py
+scripts/make_modes_and_overlap_figure.py
+scripts/make_sphere_prolate_splitting.py
+scripts/run_ablation_native_scripts.py
+scripts/run_ablation_statistics.py
+scripts/sphere_to_prolate_spheroid_ritz.py
+scripts/train_pinn_square_2d_v5.py
+
 # LaTeX build artifacts
 *.aux
 *.bbl

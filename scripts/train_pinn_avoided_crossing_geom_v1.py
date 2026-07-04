@@ -332,7 +332,7 @@ def make_figure(summary: pd.DataFrame) -> None:
     ax.set_ylabel(r"$E_3-E_2$")
     ax.legend(loc="upper right")
     ax.text(-0.12, 1.04, "(c)", transform=ax.transAxes, fontweight="bold")
-    out = OUT_FIG / "Fig_avoided_crossing_geom"
+    out = OUT_FIG / "Fig6_avoided_crossing_geometric"
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight", pad_inches=0.018)
     fig.savefig(out.with_suffix(".png"), dpi=300, bbox_inches="tight", pad_inches=0.018)
     plt.close(fig)
@@ -416,8 +416,8 @@ def main() -> None:
     make_figure(df)
     print("\nSaved:")
     print(OUT_DATA / "avoided_crossing_geom_summary.csv")
-    print(OUT_FIG / "Fig_avoided_crossing_geom.pdf")
-    print(OUT_FIG / "Fig_avoided_crossing_geom.png")
+    print(OUT_FIG / "Fig6_avoided_crossing_geometric.pdf")
+    print(OUT_FIG / "Fig6_avoided_crossing_geometric.png")
 
 
 if __name__ == "__main__":
