@@ -450,12 +450,13 @@ def make_method_matrix(entries: pd.DataFrame, fig_dir: Path) -> None:
     ax.set_yticklabels(["1D excited\nstates", "square\ndegeneracy", "rectangle\nsplitting", "disk $m=1$\ndoublet", "ellipse\nsplitting"])
     ax.set_title("methodological hierarchy for degenerate quantum eigenspaces")
 
-    symbols = {-2: "—", -1: "?", 0: "×", 1: "±", 2: "✓"}
+    symbols = {-2: "NA", -1: "NT", 0: "F", 1: "P", 2: "S"}
     for i in range(mat.shape[0]):
         for j in range(mat.shape[1]):
             val = int(mat[i, j])
             color = "white" if val in [0, 2] else "black"
-            ax.text(j, i, symbols[val], ha="center", va="center", fontsize=12, fontweight="bold", color=color)
+            fs = 11 if len(symbols[val]) == 1 else 9.5
+            ax.text(j, i, symbols[val], ha="center", va="center", fontsize=fs, fontweight="bold", color=color)
 
     ax.set_xticks(np.arange(-0.5, len(methods), 1), minor=True)
     ax.set_yticks(np.arange(-0.5, len(cases), 1), minor=True)

@@ -1,5 +1,5 @@
 case,quantity,value,unit,status,source,note
-1D well,max relative error,0.001598185520006,%,success,data/pinn_1d_summary_n1_n5_projected_v2.csv,Projected Rayleigh PINN for excited states.
+1D well,max relative error,0.001598185520006,%,success,data/pinn_1d_projected_summary.csv,Projected Rayleigh PINN for excited states.
 square,max relative error,0.0495765822726982,%,success,data/pinn_square_2d_subspace_summary.csv,Square subspace calculation.
 square,min degenerate-subspace weight,0.9999934444478242,,success,data/pinn_square_2d_subspace_summary.csv,"Weight in span{psi_12, psi_21}."
 rectangle,max branch error,,%,missing,data/final_rectangle_2d_splitting.csv,PINN points versus analytic rectangle branches.

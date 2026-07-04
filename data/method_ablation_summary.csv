@@ -1,7 +1,7 @@
 case,method,score,label,evidence,source
 1D excited states,residual PINN,1,partial,"Recovers the n=5 state only with an eigenvalue initialization already close to the target energy (20/20 seeds); a wide or misleading initialization collapses onto a different nodal count (<=1/20 seeds), so it is not a robust free excited-state search (see initialization control).",
 1D excited states,orthogonality penalty,1,partial,Works for low states but failed for higher excitation before hard projection.,
-1D excited states,orthogonal projection,2,success,Recovered n=1..5 with correct nodal counts.,data/pinn_1d_summary_n1_n5_projected_v2.csv
+1D excited states,orthogonal projection,2,success,Recovered n=1..5 with correct nodal counts.,data/pinn_1d_projected_summary.csv
 1D excited states,subspace Ritz,-2,not_applicable,Not needed for final 1D benchmark.,
 1D excited states,symmetry sectors,-2,not_applicable,No geometric degeneracy in 1D.,
 square degeneracy,residual PINN,0,failure,State-by-state residual/Rayleigh formulations are ambiguous in a degenerate eigenspace.,
