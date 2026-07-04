@@ -135,8 +135,7 @@ def score_from_status(status: str) -> int:
 
 def extract_1d(root: Path) -> Tuple[List[dict], Optional[str]]:
     path = first_existing(root, [
-        "data/final_pinn_1d_summary_n1_n5_projected_v2.csv",
-        "data/pinn_1d_summary_n1_n5_projected_v2.csv",
+        "data/pinn_1d_projected_summary.csv",
         "data/pinn_1d_summary.csv",
     ])
     df = read_csv(path)
@@ -319,7 +318,7 @@ def extract_disk(root: Path) -> Tuple[List[dict], Optional[str]]:
 def extract_ellipse(root: Path) -> Tuple[List[dict], Optional[str]]:
     path = first_existing(root, [
         "data/final_ellipse_2d_splitting.csv",
-        "data/pinn_ellipse_2d_symmetry_v2_splitting.csv",
+        "data/ellipse_symmetry_splitting.csv",
     ])
     df = read_csv(path)
     if df is None:

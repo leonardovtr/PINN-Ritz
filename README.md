@@ -38,7 +38,7 @@ The repository includes only the final figure files used in the manuscript:
 - `figures/Fig2_method_ablation.pdf`
 - `figures/Fig3_results_summary.pdf`
 - `figures/Fig4_splitting_deltas.pdf`
-- `figures/Fig5_avoided_crossing_alpha005_h1.pdf`
+- `figures/Fig5_avoided_crossing_modal_tracking.pdf`
 - `figures/Fig6_avoided_crossing_geometric.pdf`
 - `figures/Fig7_residual_baseline_control.pdf`
 
@@ -49,14 +49,14 @@ PNG copies are included for convenient preview.
 Core training and analysis scripts:
 
 ```bash
-python scripts/train_pinn_1d_projected_v2.py
+python scripts/train_pinn_1d_projected.py
 python scripts/train_pinn_square_2d_subspace.py
 python scripts/train_pinn_rectangle_2d_splitting.py
 python scripts/train_pinn_disk_2d_subspace.py
 python scripts/train_pinn_ellipse_2d_splitting.py
-python scripts/train_pinn_avoided_crossing_2d_v6.py
+python scripts/train_pinn_avoided_crossing_carrier.py
 python scripts/train_pinn_1d_residual_baseline.py --all-init-regimes
-python scripts/train_pinn_avoided_crossing_geom_v1.py
+python scripts/train_pinn_avoided_crossing_geometric.py
 ```
 
 Final figure and diagnostic scripts:
@@ -64,9 +64,9 @@ Final figure and diagnostic scripts:
 ```bash
 python scripts/make_main_results_and_splitting_figures.py --overwrite
 python scripts/make_method_ablation_summary.py --root .
-python scripts/make_avoided_crossing_alpha005_h1.py
+python scripts/make_avoided_crossing_modal_tracking.py
 python scripts/ellipse_fd_grid_convergence.py
-python scripts/analyze_square_basis_selection_v2.py --epochs 1000
+python scripts/analyze_square_basis_selection.py --epochs 1000
 ```
 
 ## Large Data Files
@@ -75,7 +75,7 @@ Three grid-level CSV files are stored with Git LFS:
 
 - `data/final_ellipse_2d_modes_grid.csv`
 - `data/pinn_ellipse_2d_symmetry_modes_grid.csv`
-- `data/pinn_ellipse_2d_symmetry_v2_modes_grid.csv`
+- `data/ellipse_symmetry_modes_grid.csv`
 
 After cloning, install Git LFS and run:
 

@@ -17,7 +17,7 @@ scripts/archive_scripts/
 
 # Local manuscript drafts kept outside the public repository
 paper_drafts_archive/
-paper_v4_tracked_changes.tex
+paper_tracked_changes.tex
 
 # Keep local exploratory outputs out of the public repository.
 figures/*
@@ -27,8 +27,8 @@ figures/*
 !figures/Fig3_results_summary.png
 !figures/Fig4_splitting_deltas.pdf
 !figures/Fig4_splitting_deltas.png
-!figures/Fig5_avoided_crossing_alpha005_h1.pdf
-!figures/Fig5_avoided_crossing_alpha005_h1.png
+!figures/Fig5_avoided_crossing_modal_tracking.pdf
+!figures/Fig5_avoided_crossing_modal_tracking.png
 !figures/Fig6_avoided_crossing_geometric.pdf
 !figures/Fig6_avoided_crossing_geometric.png
 !figures/Fig7_residual_baseline_control.pdf
@@ -41,7 +41,13 @@ scripts/make_sphere_prolate_splitting.py
 scripts/run_ablation_native_scripts.py
 scripts/run_ablation_statistics.py
 scripts/sphere_to_prolate_spheroid_ritz.py
-scripts/train_pinn_square_2d_v5.py
+
+# Local superseded data products with development-version names
+data/*_v[0-9]*.csv
+data/*alpha0*.csv
+data/*backup*.csv
+data/*strong*.csv
+data/*legacy*.csv
 
 # LaTeX build artifacts
 *.aux

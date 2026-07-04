@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-make_main_results_figure_v2.py
+make_main_results_and_splitting_figures.py
 
 Generate a polished publication-style main-results figure for the
 symmetry-aware Rayleigh--Ritz PINN quantum-domain paper.
@@ -15,13 +15,13 @@ physics-oriented figure:
 (d) Ellipse: disk-to-ellipse splitting, with FD shown as sorted branches.
 
 Recommended location:
-    PINN/scripts/make_main_results_figure_v2.py
+    PINN/scripts/make_main_results_and_splitting_figures.py
 
 Run from project root:
-    python scripts/make_main_results_figure_v2.py --root .
+    python scripts/make_main_results_and_splitting_figures.py --root .
 
 Run from scripts:
-    python make_main_results_figure_v2.py --root ..
+    python make_main_results_and_splitting_figures.py --root ..
 
 Outputs:
     figures/Fig3_results_summary_candidate.pdf
@@ -211,7 +211,7 @@ def read_or_default_ellipse(data_dir: Path) -> pd.DataFrame:
     candidates = [
         data_dir / "paper_ellipse_splitting.csv",
         data_dir / "final_ellipse_2d_splitting.csv",
-        data_dir / "pinn_ellipse_2d_symmetry_v2_splitting.csv",
+        data_dir / "ellipse_symmetry_splitting.csv",
     ]
     for p in candidates:
         if p.exists():

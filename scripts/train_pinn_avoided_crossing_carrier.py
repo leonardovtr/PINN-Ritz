@@ -1,18 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-train_pinn_avoided_crossing_2d_v6.py
+train_pinn_avoided_crossing_carrier.py
 
 Carrier-mode Rayleigh--Ritz/PINN test for an avoided crossing.
 
-Why v6
-------
-The previous free-basis folded-operator attempts showed that an avoided crossing
-of excited/interior states is not a simple "minimize the Rayleigh quotient"
-problem.  A free neural basis can drift toward low-energy modes or unstable
-interior eigenspaces.
-
-Here we use the physically correct local ansatz for branch tracking near a known
+Purpose
+-------
+This script uses a local carrier ansatz for branch tracking near a known
 near-degenerate band:
 
     phi_1(u,v) = psi_12(u,v) + alpha B(u,v) N_1(u,v)
@@ -29,7 +24,7 @@ would use to follow physical modal identity across an avoided crossing.
 Physics
 -------
 The unperturbed rectangular branches (1,2) and (2,1) cross at eta=1.
-A weak mixing potential
+A controlled mixing potential
 
     V(u,v) = lambda_mix (u - 1/2)(v - 1/2)
 
@@ -37,26 +32,26 @@ opens an avoided crossing and causes exchange of modal character.
 
 Outputs
 -------
-data/pinn_avoided_crossing_2d_v6_summary.csv
-data/pinn_avoided_crossing_2d_v6_character.csv
-data/pinn_avoided_crossing_2d_v6_overlap_tracking.csv
+data/avoided_crossing_carrier_summary.csv
+data/avoided_crossing_carrier_character.csv
+data/avoided_crossing_carrier_overlap_tracking.csv
 
-figures/pinn_avoided_crossing_2d_v6_summary.pdf/png
-figures/pinn_avoided_crossing_2d_v6_energies.pdf/png
-figures/pinn_avoided_crossing_2d_v6_character.pdf/png
+figures/avoided_crossing_carrier_summary.pdf/png
+figures/avoided_crossing_carrier_energies.pdf/png
+figures/avoided_crossing_carrier_character.pdf/png
 
 Run
 ---
 cd PINN
 
 Quick:
-python scripts/train_pinn_avoided_crossing_2d_v6.py --root . --quick
+python scripts/train_pinn_avoided_crossing_carrier.py --root . --quick
 
 Stronger:
-python scripts/train_pinn_avoided_crossing_2d_v6.py --root . --epochs 2000 --nq 64 --nmax_ref 10 --restarts 4
+python scripts/train_pinn_avoided_crossing_carrier.py --root . --epochs 2000 --nq 64 --nmax_ref 10 --restarts 4
 
 A control run with no neural correction is also possible:
-python scripts/train_pinn_avoided_crossing_2d_v6.py --root . --alpha 0
+python scripts/train_pinn_avoided_crossing_carrier.py --root . --alpha 0
 """
 
 from __future__ import annotations
@@ -621,7 +616,7 @@ def plot_results(summary: pd.DataFrame, char_df: pd.DataFrame, fig_dir: Path) ->
     ax.set_title("(c) gap")
     ax.legend(fontsize=6.0, loc="best")
 
-    save_fig(fig, fig_dir / "pinn_avoided_crossing_2d_v6_summary")
+    save_fig(fig, fig_dir / "avoided_crossing_carrier_summary")
     plt.close(fig)
 
     fig, ax = plt.subplots(figsize=(3.5, 2.72))
@@ -635,7 +630,7 @@ def plot_results(summary: pd.DataFrame, char_df: pd.DataFrame, fig_dir: Path) ->
     ax.set_ylabel(r"$\epsilon$")
     ax.set_title("avoided crossing")
     ax.legend(fontsize=6.5, loc="best")
-    save_fig(fig, fig_dir / "pinn_avoided_crossing_2d_v6_energies")
+    save_fig(fig, fig_dir / "avoided_crossing_carrier_energies")
     plt.close(fig)
 
     fig, ax = plt.subplots(figsize=(3.5, 2.72))
@@ -648,7 +643,7 @@ def plot_results(summary: pd.DataFrame, char_df: pd.DataFrame, fig_dir: Path) ->
     ax.set_ylabel("lower-branch character")
     ax.set_title("modal character exchange")
     ax.legend(fontsize=6.5, loc="center right")
-    save_fig(fig, fig_dir / "pinn_avoided_crossing_2d_v6_character")
+    save_fig(fig, fig_dir / "avoided_crossing_carrier_character")
     plt.close(fig)
 
 
@@ -720,7 +715,7 @@ def main() -> None:
     w_np = np.ones(len(pts_np)) / len(pts_np)
     etas = np.linspace(args.eta_min, args.eta_max, args.n_eta)
 
-    print("2D avoided-crossing carrier-mode Rayleigh--Ritz/PINN v6")
+    print("2D avoided-crossing carrier-mode Rayleigh--Ritz/PINN")
     print(f"  root: {root}")
     print(f"  eta: {etas[0]:.3f} ... {etas[-1]:.3f} ({len(etas)} points)")
     print(f"  lambda_mix: {args.lambda_mix}")
@@ -831,9 +826,9 @@ def main() -> None:
     char_df = pd.DataFrame(char_rows)
     overlap_df = pd.DataFrame(overlap_rows)
 
-    summary_path = data_dir / "pinn_avoided_crossing_2d_v6_summary.csv"
-    char_path = data_dir / "pinn_avoided_crossing_2d_v6_character.csv"
-    overlap_path = data_dir / "pinn_avoided_crossing_2d_v6_overlap_tracking.csv"
+    summary_path = data_dir / "avoided_crossing_carrier_summary.csv"
+    char_path = data_dir / "avoided_crossing_carrier_character.csv"
+    overlap_path = data_dir / "avoided_crossing_carrier_overlap_tracking.csv"
 
     summary.to_csv(summary_path, index=False)
     char_df.to_csv(char_path, index=False)
@@ -845,9 +840,9 @@ def main() -> None:
     print(f"  {summary_path}")
     print(f"  {char_path}")
     print(f"  {overlap_path}")
-    print(f"  {fig_dir / 'pinn_avoided_crossing_2d_v6_summary.pdf'}")
-    print(f"  {fig_dir / 'pinn_avoided_crossing_2d_v6_energies.pdf'}")
-    print(f"  {fig_dir / 'pinn_avoided_crossing_2d_v6_character.pdf'}")
+    print(f"  {fig_dir / 'avoided_crossing_carrier_summary.pdf'}")
+    print(f"  {fig_dir / 'avoided_crossing_carrier_energies.pdf'}")
+    print(f"  {fig_dir / 'avoided_crossing_carrier_character.pdf'}")
 
     print("\nCompact summary:")
     print(summary[[

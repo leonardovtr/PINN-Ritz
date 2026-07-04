@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the publication-style avoided-crossing figure for the alpha=0.05 run."""
+"""Build the avoided-crossing modal-tracking manuscript figure."""
 
 from pathlib import Path
 
@@ -55,8 +55,8 @@ def panel_label(ax, text: str) -> None:
 
 def main() -> None:
     setup_style()
-    summary = pd.read_csv(DATA / "pinn_avoided_crossing_2d_v6_summary_alpha005_h1.csv")
-    char = pd.read_csv(DATA / "pinn_avoided_crossing_2d_v6_character_alpha005_h1.csv")
+    summary = pd.read_csv(DATA / "avoided_crossing_carrier_summary.csv")
+    char = pd.read_csv(DATA / "avoided_crossing_carrier_character.csv")
     lower = char[char["branch"] == "lower"].copy()
 
     eta = summary["eta"]
@@ -113,7 +113,7 @@ def main() -> None:
     panel_label(ax, "(c)")
     ax.legend(loc="upper right", handlelength=1.8, borderpad=0.1, labelspacing=0.35)
 
-    out = FIG / "Fig5_avoided_crossing_alpha005_h1"
+    out = FIG / "Fig5_avoided_crossing_modal_tracking"
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight", pad_inches=0.018)
     fig.savefig(out.with_suffix(".png"), dpi=600, bbox_inches="tight", pad_inches=0.018)
     plt.close(fig)
