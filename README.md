@@ -1,4 +1,4 @@
-# Rayleigh--Ritz PINNs for quantum eigenspaces
+# Rayleigh-Ritz PINNs for quantum eigenspaces
 
 Code and data for the manuscript
 
