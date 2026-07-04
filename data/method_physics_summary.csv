@@ -1,0 +1,11 @@
+case,quantity,value,unit,status,source,note
+1D well,max relative error,0.001598185520006,%,success,data/pinn_1d_summary_n1_n5_projected_v2.csv,Projected Rayleigh PINN for excited states.
+square,max relative error,0.0495765822726982,%,success,data/pinn_square_2d_subspace_summary.csv,Square subspace calculation.
+square,min degenerate-subspace weight,0.9999934444478242,,success,data/pinn_square_2d_subspace_summary.csv,"Weight in span{psi_12, psi_21}."
+rectangle,max branch error,,%,missing,data/final_rectangle_2d_splitting.csv,PINN points versus analytic rectangle branches.
+rectangle,splitting sign reversal,0.0,,missing,data/final_rectangle_2d_splitting.csv,Delta changes sign across eta=1.
+disk,max relative error,0.05468072459242,%,success,data/final_disk_2d_subspace_summary.csv,Disk Bessel benchmark.
+disk,min m=1 doublet weight,0.9999999371887518,,success,data/final_disk_2d_subspace_summary.csv,Weight of states 2 and 3 in the circular m=1 subspace.
+ellipse,max sorted-branch error vs FD,1.7246733310340123,%,success,data/final_ellipse_2d_splitting.csv,Symmetry-adapted x/y sectors; independent FD validation.
+ellipse,splitting at eta=1,0.0005967257719898811,,success,data/final_ellipse_2d_splitting.csv,Circular limit should recover the m=1 degeneracy.
+ellipse,branch ordering,1.0,,success,data/final_ellipse_2d_splitting.csv,eta<1 gives Ey>Ex; eta>1 gives Ex>Ey.

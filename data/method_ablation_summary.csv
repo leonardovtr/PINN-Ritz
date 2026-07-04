@@ -1,0 +1,26 @@
+case,method,score,label,evidence,source
+1D excited states,residual PINN,1,partial,"Recovers the n=5 state only with an eigenvalue initialization already close to the target energy (20/20 seeds); a wide or misleading initialization collapses onto a different nodal count (<=1/20 seeds), so it is not a robust free excited-state search (see initialization control).",
+1D excited states,orthogonality penalty,1,partial,Works for low states but failed for higher excitation before hard projection.,
+1D excited states,orthogonal projection,2,success,Recovered n=1..5 with correct nodal counts.,data/pinn_1d_summary_n1_n5_projected_v2.csv
+1D excited states,subspace Ritz,-2,not_applicable,Not needed for final 1D benchmark.,
+1D excited states,symmetry sectors,-2,not_applicable,No geometric degeneracy in 1D.,
+square degeneracy,residual PINN,0,failure,State-by-state residual/Rayleigh formulations are ambiguous in a degenerate eigenspace.,
+square degeneracy,orthogonality penalty,1,partial,Can separate functions but does not naturally identify the degenerate subspace.,
+square degeneracy,orthogonal projection,1,partial,Projection helps ordering but treats a subspace as individual states.,
+square degeneracy,subspace Ritz,2,success,"Recovered span{psi_12, psi_21}.",data/pinn_square_2d_subspace_summary.csv
+square degeneracy,symmetry sectors,-2,not_applicable,Subspace formulation is the natural representation.,
+rectangle splitting,residual PINN,-1,missing,Not used as final method.,
+rectangle splitting,orthogonality penalty,-1,missing,Not used as final method.,
+rectangle splitting,orthogonal projection,1,partial,May track branches but is less natural near eta=1.,
+rectangle splitting,subspace Ritz,2,success,Recovered analytic E12/E21 splitting and sign reversal.,data/final_rectangle_2d_splitting.csv
+rectangle splitting,symmetry sectors,-2,not_applicable,Branch tracking via overlaps/subspace is sufficient.,
+disk m=1 doublet,residual PINN,-1,missing,Not used as final method.,
+disk m=1 doublet,orthogonality penalty,1,partial,Degenerate angular modes should be interpreted as an eigenspace.,
+disk m=1 doublet,orthogonal projection,1,partial,Projection imposes an arbitrary basis choice in the degenerate doublet.,
+disk m=1 doublet,subspace Ritz,2,success,Recovered the rotational m=1 doublet.,data/final_disk_2d_subspace_summary.csv
+disk m=1 doublet,symmetry sectors,-2,not_applicable,Full rotational subspace is more natural for the disk.,
+ellipse splitting,residual PINN,-1,missing,Not used as final method.,
+ellipse splitting,orthogonality penalty,0,failure,Unstable for the split doublet.,
+ellipse splitting,orthogonal projection,0,failure,Generic projection/subspace attempts produced high-energy spurious branches.,
+ellipse splitting,subspace Ritz,1,partial,Generic subspace becomes unstable after degeneracy is lifted.,
+ellipse splitting,symmetry sectors,2,success,Recovered x-like/y-like splitting versus FD.,data/final_ellipse_2d_splitting.csv

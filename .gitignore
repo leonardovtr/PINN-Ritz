@@ -1,0 +1,31 @@
+.cache/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local virtual environments and editor state
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Local working notes
+prompt_*.md
+
+# Superseded exploratory scripts kept locally
+scripts/archive_scripts/
+
+# Local manuscript drafts kept outside the public repository
+paper_drafts_archive/
+paper_v4_tracked_changes.tex
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc

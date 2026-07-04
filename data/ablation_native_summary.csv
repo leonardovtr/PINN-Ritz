@@ -1,0 +1,7 @@
+case,method,n_seeds,success_rate_percent,mean_rel_error_percent,std_rel_error_percent,max_rel_error_percent,mean_subspace_weight,mean_parity_score,mean_runtime_s,seed_argument_available,typical_failure_mode
+1D n=5,baseline state-by-state,20,0.0,62.870979999999996,27.83053246045089,132.8608,,,5.325222468376159,True,energy error
+1D n=5,projected Rayleigh,20,100.0,0.02753,0.004838344649502391,0.0366,,,84.31782666444778,True,stable
+square doublet,subspace Ritz,20,100.0,0.043755,0.020291363861712722,0.1178,0.9999824999999998,,84.98931894302368,True,stable
+disk m=1,subspace Ritz,20,100.0,0.00043,4.412899750790439e-05,0.0006,1.0,,274.82132276296613,True,stable
+ellipse split,generic subspace,20,0.0,708.7723193730185,252.66333542269058,5251.90956185198,,0.0,591.7825522184372,True,branch drift/generic subspace instability
+ellipse split,symmetry sectors,20,100.0,1.6162144883691751,0.03708831163063371,2.1360428807065133,,1.0,1165.4067383289337,True,stable branch tracking
