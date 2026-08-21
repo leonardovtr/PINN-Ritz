@@ -18,6 +18,8 @@ scripts/archive_scripts/
 # Local manuscript drafts kept outside the public repository
 paper_drafts_archive/
 paper_tracked_changes.tex
+*.tex
+*.bib
 
 # Keep local exploratory outputs out of the public repository.
 figures/*

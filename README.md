@@ -25,8 +25,6 @@ data/                  CSV files used by the manuscript figures and tables
 figures/               final manuscript figures
 quantum_dots/          analytical helper routines
 scripts/               final training and reproduction scripts
-paper_final_clean.tex  clean manuscript source
-references.bib         bibliography
 ```
 
 ## Final Manuscript Figures
