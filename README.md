@@ -4,8 +4,6 @@ Code and data for the manuscript
 
 **Learning quantum eigenspaces under geometric symmetry breaking with Rayleigh--Ritz physics-informed neural networks**.
 
-Preprint link: to be added after the arXiv submission.
-
 ## Scope
 
 This repository contains the final scripts, data files, and manuscript figures used for the submitted version of the work. The examples study ordered excited states, degenerate eigenspaces, symmetry-split branches, residual-baseline controls, and modal tracking near avoided crossings in ideal quantum wells.
